@@ -20,7 +20,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={clsx(className, {
           [ButtonStyle.primary]: variant === "primary",
-          [ButtonStyle.secondary]: variant === "secondary",
+          [ButtonStyle.secondary]: variant === "secondary"
         })}
         {...restProps}
       >

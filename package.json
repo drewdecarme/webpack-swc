@@ -9,13 +9,15 @@
   "sideEffects": false,
   "module": "dist/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.cjs"
+    "build": "webpack --config webpack.config.cjs",
+    "format": "prettier --write '**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@swc/core": "1.2.103",
     "@swc/jest": "^0.2.5",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "@types/sass": "^1.16.1",
     "css-loader": "^6.5.0",
     "eslint": "^8.1.0",
     "eslint-plugin-react": "^7.26.1",
@@ -30,7 +32,6 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "@types/sass": "^1.16.1",
     "clsx": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

@@ -5,12 +5,12 @@ const nodeExternals = require("webpack-node-externals");
 module.exports = {
   mode: "production",
   cache: {
-    type: "filesystem",
+    type: "filesystem"
   },
   experiments: {
     // experimental for ESM outputs
     // https://webpack.js.org/configuration/experiments/#experimentsoutputmodule
-    outputModule: true,
+    outputModule: true
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -23,17 +23,17 @@ module.exports = {
      */
     //
     library: {
-      type: "module",
-    },
+      type: "module"
+    }
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".css"],
+    extensions: [".js", ".ts", ".tsx", ".css"]
   },
   module: {
     rules: [
       {
         test: /\.(tsx|ts)?$/,
-        use: "swc-loader",
+        use: "swc-loader"
       },
       {
         test: /\.(scss|css)$/,
@@ -43,23 +43,23 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              modules: true,
-            },
+              modules: true
+            }
           },
           {
             loader: "sass-loader",
             options: {
               sourceMap: true,
               sassOptions: {
-                outputStyle: "compressed",
-              },
-            },
-          },
+                outputStyle: "compressed"
+              }
+            }
+          }
         ],
         exclude: /node_modules/,
-        sideEffects: true,
-      },
-    ],
+        sideEffects: true
+      }
+    ]
   },
   // only bundle the code that you write
   // and not the other external dependencies
@@ -71,7 +71,7 @@ module.exports = {
    */
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "index.css",
-    }),
-  ],
+      filename: "index.css"
+    })
+  ]
 };
