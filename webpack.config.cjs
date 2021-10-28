@@ -62,6 +62,9 @@ module.exports = {
   // and not the other external dependencies
   // it will be up to the consume to download them
   externals: [nodeExternals()],
+  /**
+   * Output the CSS that is imported so it can be imported into another project
+   */
   plugins: [
     new MiniCssExtractPlugin({
       filename: "index.css",
