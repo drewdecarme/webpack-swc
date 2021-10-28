@@ -1,4 +1,10 @@
 {
+  "name": "@htc/webpack-swc",
+  "version": "1.0.0",
+  "description": "Example on how to configure an ESM component library with webpack and swc",
+  "main": "dist/index.js",
+  "author": "Drew DeCarme",
+  "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "module": "dist/index.js",
@@ -9,7 +15,6 @@
     "build-storybook": "yarn prestorybook && build-storybook --static-dir ./.storybook/public"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -18,7 +23,6 @@
     "@swc/jest": "^0.2.5",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
-    "babel-loader": "^8.2.3",
     "css-loader": "^6.5.0",
     "eslint": "^8.1.0",
     "eslint-plugin-react": "^7.26.1",
@@ -28,12 +32,10 @@
     "typescript": "^4.4.4",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "esbuild": "^0.13.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
