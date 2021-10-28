@@ -1,0 +1,10 @@
+.htc_button {
+  border: 0;
+}
+
+.htc_button.primary {
+  background: var(--color-primary);
+}
+.htc_button.secondary {
+  background: var(--color-primary);
+}
