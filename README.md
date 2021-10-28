@@ -10,7 +10,7 @@ This is an example repository to display arguably the proper way to setup a ESMo
     - [Webpack for flexibility](#webpack-for-flexibility)
       - [Why Webpack over ESBuild?](#why-webpack-over-esbuild)
       - [TS Transpilation & CSS Compilation](#ts-transpilation--css-compilation)
-    - [Build Caching](#build-caching)
+      - [Build Caching](#build-caching)
       - [Dependency Externalization](#dependency-externalization)
     - [`@swc/loader` for speed](#swcloader-for-speed)
   - [Package Weight & Native HTML node components](#package-weight--native-html-node-components)
@@ -175,7 +175,7 @@ module.exports = {
 };
 ```
 
-### Build Caching
+#### Build Caching
 
 Webpack has an extremely easy way to cache builds in order to make things as fast as possible when developing or building. To read more about [webpack caching, click on this link](https://webpack.js.org/configuration/cache/)
 
