@@ -20,8 +20,7 @@ module.exports = {
     //
     library: {
       /**
-       * Need to remove this. Naming your library doesn't jive
-       * with exporting it as a module
+       * Need to remove `name`. Naming your library doesn't jive with exporting it as a module
        */
       // name: "components",
       type: "module",
