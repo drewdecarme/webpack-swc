@@ -2,12 +2,15 @@
 
 This is an example repository to display arguably the proper way to setup a ESModule React component library that is light weight, virtually dependency free and offers extremely fast builds.
 
+- [React Component Library - Webpack & SWC](#react-component-library---webpack--swc)
   - [Type Safety](#type-safety)
   - [Flexible and Lightweight styling](#flexible-and-lightweight-styling)
     - [CSS Modules](#css-modules)
   - [Build Flexibility and Speed](#build-flexibility-and-speed)
     - [Webpack for flexibility](#webpack-for-flexibility)
+      - [Why Webpack over ESBuild?](#why-webpack-over-esbuild)
       - [TS Transpilation & CSS Compilation](#ts-transpilation--css-compilation)
+    - [Build Caching](#build-caching)
       - [Dependency Externalization](#dependency-externalization)
     - [`@swc/loader` for speed](#swcloader-for-speed)
   - [Package Weight & Native HTML node components](#package-weight--native-html-node-components)
@@ -78,17 +81,60 @@ Since there are 2 needs of this build...
 1. Create the ESM Bundle (minify, terse, etc...)
 2. Create the Component Stylesheet
 
-Webpack was the obvious choice to do that.
+Webpack and ESBuild we're the 2 obvious choices for this.
 
 ### Webpack for flexibility
+
+#### Why Webpack over ESBuild?
+
+I find that Webpack has a bit more of a complicated syntax, but I think it's valuable in order to utilize the new rust based tooling for transpilation. ESBuild is written in Go and although native, SWC is written in rust and I think offers a better and faster build time. In addition, there are a-lot more things you can configure with SWC than in ESBuild and maintaining control over the output is extremely important.
 
 #### TS Transpilation & CSS Compilation
 
 We can create aa simple configuration to create the library and then extend that configuration to enable Sass and CSS Modules. We didn't have to sacrifice speed since we are using the `@swc/loader` from the `swc` project.
 
-In addition to using that loader, we can also use the `MiniCssExtractPlugin` to extract all of our styles into one stylesheet.
+Webpack wasn't originally intended to be used to build JS libraries, so we have to tell it that we're going to be be building a library. Otherwise it's just going to spit out a empty distribution file in our `output` dir and filename.
 
-Take a look at the snapshot of the config below to see the both points above in action
+```js
+const path = require("path");
+
+module.exports = {
+  // other config options
+  ...otherWebpackConfigOptions,
+  experiments: {
+    // experimental for ESM outputs
+    // https://webpack.js.org/configuration/experiments/#experimentsoutputmodule
+    outputModule: true
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "index.js",
+    module: true,
+    /**
+     * need to include this to make sure that webpack knows your building
+     * a library instead of an application. If you don't include the library
+     * key you're going to continually get a blank output
+     */
+    //
+    library: {
+      type: "module"
+    }
+  },
+  // use the SWC Loader for TS and TSX files
+  module: {
+    rules: [
+      {
+        test: /\.(tsx|ts)?$/,
+        use: "swc-loader"
+      },
+      // other loader rules for styles, etc...
+      ...otherLoaderRules
+    ]
+  }
+};
+```
+
+In addition to using that loader, we can also use the `MiniCssExtractPlugin` to extract all of our styles into one stylesheet. Take a look at the below example on how we do that.
 
 ```js
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -126,6 +172,22 @@ module.exports = {
       }
     ]
   }
+};
+```
+
+### Build Caching
+
+Webpack has an extremely easy way to cache builds in order to make things as fast as possible when developing or building. To read more about [webpack caching, click on this link](https://webpack.js.org/configuration/cache/)
+
+```js
+const nodeExternals = require("webpack-node-externals");
+
+module.exports = {
+  // only bundle the code that you write
+  // and not the other external dependencies
+  // it will be up to the consume to download them
+  externals: [nodeExternals()],
+  externalsPresets: { node: true }
 };
 ```
 
