@@ -1,8 +1,9 @@
 {
   "type": "module",
   "sideEffects": false,
+  "module": "dist/index.js",
   "scripts": {
-    "build": "NODE_ENV=production rm -rf ./dist && webpack --config webpack.config.cjs",
+    "build": "webpack --config webpack.config.cjs",
     "prestorybook": "cp src/root.css ./.storybook/public",
     "storybook": "yarn prestorybook && start-storybook -p 6006 --static-dir ./.storybook/public",
     "build-storybook": "yarn prestorybook && build-storybook --static-dir ./.storybook/public"

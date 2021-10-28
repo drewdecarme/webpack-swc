@@ -4,14 +4,15 @@ const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   mode: "production",
-  // experimental for ESM outputs
   experiments: {
+    // experimental for ESM outputs
     // https://webpack.js.org/configuration/experiments/#experimentsoutputmodule
     outputModule: true,
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
+    module: true,
     /**
      * need to include this to make sure that webpack knows your building
      * a library instead of an application. If you don't include the library
@@ -19,14 +20,8 @@ module.exports = {
      */
     //
     library: {
-      /**
-       * Need to remove `name`. Naming your library doesn't jive with exporting it as a module
-       */
-      // name: "components",
       type: "module",
     },
-    // sets the output to ESM syntax
-    module: true,
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".css"],
@@ -46,7 +41,8 @@ module.exports = {
             options: {
               /**
                * Allows us to hash the names of our CSS
-               * in the library so they don't clash
+               * in the library so they don't clash with
+               * another part of your app
                */
               modules: true,
             },
@@ -57,11 +53,11 @@ module.exports = {
       },
     ],
   },
-  externalsPresets: { node: true },
   // only bundle the code that you write
   // and not the other external dependencies
   // it will be up to the consume to download them
   externals: [nodeExternals()],
+  externalsPresets: { node: true },
   /**
    * Output the CSS that is imported so it can be imported into another project
    */
