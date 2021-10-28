@@ -1,2 +1,2 @@
-import "./root";
-export * from "./Button";
+import "./theme/index.css";
+export * from "./components";

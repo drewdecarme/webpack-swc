@@ -9,16 +9,9 @@
   "sideEffects": false,
   "module": "dist/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.cjs",
-    "prestorybook": "cp src/root.css ./.storybook/public",
-    "storybook": "yarn prestorybook && start-storybook -p 6006 --static-dir ./.storybook/public",
-    "build-storybook": "yarn prestorybook && build-storybook --static-dir ./.storybook/public"
+    "build": "webpack --config webpack.config.cjs"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/react": "^6.3.12",
     "@swc/core": "1.2.103",
     "@swc/jest": "^0.2.5",
     "@types/react": "^17.0.33",
@@ -27,6 +20,8 @@
     "eslint": "^8.1.0",
     "eslint-plugin-react": "^7.26.1",
     "mini-css-extract-plugin": "^2.4.3",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "swc-loader": "^0.1.15",
     "typescript": "^4.4.4",
@@ -35,6 +30,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@types/sass": "^1.16.1",
     "clsx": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

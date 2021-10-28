@@ -33,18 +33,23 @@ module.exports = {
         use: "swc-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
-              /**
-               * Allows us to hash the names of our CSS
-               * in the library so they don't clash with
-               * another part of your app
-               */
+              sourceMap: true,
               modules: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+              sassOptions: {
+                outputStyle: "compressed",
+              },
             },
           },
         ],

@@ -1,7 +1,7 @@
-import "./Button.css";
-
 import clsx from "clsx";
 import React from "react";
+
+import { default as ButtonStyle } from "./Button.scss";
 
 export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -18,9 +18,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={clsx(className, "htc_button", {
-          "htc_button primary": variant === "primary",
-          "htc_button secondary": variant === "secondary",
+        className={clsx(className, {
+          [ButtonStyle.primary]: variant === "primary",
+          [ButtonStyle.secondary]: variant === "secondary",
         })}
         {...restProps}
       >
