@@ -4,6 +4,9 @@ const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   mode: "production",
+  cache: {
+    type: "filesystem",
+  },
   experiments: {
     // experimental for ESM outputs
     // https://webpack.js.org/configuration/experiments/#experimentsoutputmodule
