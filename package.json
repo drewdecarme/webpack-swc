@@ -1,5 +1,5 @@
 {
-  "name": "@htc/webpack-swc",
+  "name": "webpack-swc",
   "version": "1.0.0",
   "description": "Example on how to configure an ESM component library with webpack and swc",
   "main": "dist/index.js",
