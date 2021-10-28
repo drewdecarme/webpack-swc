@@ -1,19 +1,18 @@
-# React Component Library - Webpack & SWC
+# React Component Library - Webpack & SWC<!-- omit in toc -->
 
 This is an example repository to display arguably the proper way to setup a ESModule React component library that is light weight, virtually dependency free and offers extremely fast builds.
 
-- [React Component Library - Webpack & SWC](#react-component-library---webpack--swc)
-  - [Type Safety](#type-safety)
-  - [Flexible and Lightweight styling](#flexible-and-lightweight-styling)
-    - [CSS Modules](#css-modules)
-  - [Build Flexibility and Speed](#build-flexibility-and-speed)
-    - [Webpack for flexibility](#webpack-for-flexibility)
-      - [Why Webpack over ESBuild?](#why-webpack-over-esbuild)
-      - [TS Transpilation & CSS Compilation](#ts-transpilation--css-compilation)
-      - [Build Caching](#build-caching)
-      - [Dependency Externalization](#dependency-externalization)
-    - [`@swc/loader` for speed](#swcloader-for-speed)
-  - [Package Weight & Native HTML node components](#package-weight--native-html-node-components)
+- [Type Safety](#type-safety)
+- [Flexible and Lightweight styling](#flexible-and-lightweight-styling)
+  - [CSS Modules](#css-modules)
+- [Build Flexibility and Speed](#build-flexibility-and-speed)
+  - [Webpack for flexibility](#webpack-for-flexibility)
+    - [Why Webpack over ESBuild?](#why-webpack-over-esbuild)
+    - [TS Transpilation & CSS Compilation](#ts-transpilation--css-compilation)
+    - [Build Caching](#build-caching)
+    - [Dependency Externalization](#dependency-externalization)
+  - [`@swc/loader` for speed](#swcloader-for-speed)
+- [Package Weight & Native HTML node components](#package-weight--native-html-node-components)
 
 ## Type Safety
 
