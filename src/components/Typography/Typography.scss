@@ -1,0 +1,46 @@
+@function makeRem($sizeInPx) {
+    @return $sizeInPx / var(--base-font-size);    
+}
+
+@mixin font {
+    color: inherit;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+
+@mixin color {
+    &.primary {
+        color: var(--typography-color-primary);
+    }
+
+    &.secondary {
+        color: var(--typography-color-secondary);
+    }
+
+    &.error {
+        color: var(--typography-color-error);
+    }
+}
+
+@mixin typography-h1 {
+    @include font;
+    font-size: makeRem(96);
+}
+
+.typography-h1 {
+    @include typography-h1;
+    @include color;
+}
+
+@mixin typography-h2 {
+    @include font;
+    font-size: makeRem(60);
+}
+
+.typography-h2 {
+    @include typography-h2;
+    @include color;
+}

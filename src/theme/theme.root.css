@@ -1,4 +1,13 @@
 :root {
   --color-primary: blue;
   --color-secondary: green;
+
+  --typography-base-font-size: 16;
+  --typography-color-primary: black;
+  --typography-color-secondary: gray;
+  --typography-font-family: "Roboto", "Arial", sans-serif;
+  --typography-font-weight-light: 300;
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 500;
+  --typography-font-weight-bold: 700;
 }
